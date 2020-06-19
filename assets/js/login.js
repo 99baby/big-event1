@@ -71,59 +71,116 @@
 //     })
 // })
 
+// $(function () {
+//     $('.login-box a').click(function () {
+//         $('.register-box').show();
+//         $('.login-box').hide();
+//     })
+//     $('.register-box a').click(function () {
+//         $('.register-box').hide();
+//         $('.login-box').show()
+//     })
+//     var form = layui.form;
+//     form.verify( {
+//         uname:[/^[\S]{6,8}$/],
+//         pwd:[/^[\w]{6,12}$/],
+//         same:function(value,item){
+//             var pwd = $('#reg-password').val();
+//             if(pwd !== value) {
+//                 return '两次密码不一致'
+//             }
+//         }
+//     })
+//     $('.login-box').submit(function (e) {
+//         e.preventDefault();
+//         var formData = $(this).serialize();
+//         $.ajax({
+//             type: 'post',
+//             url:'http://ajax.frontend.itheima.net/api/login',
+//             data:formData,
+//             success:function(res) {
+//                 if(res.status === 0) {
+//                     localStorage.setItem('mytoken',res.token);
+//                     location.href = './index.html';
+
+//                 }
+//             }       
+//         })
+//     })
+//     $('.register-box').submit(function(e) {
+//         e.preventDefault();
+//         var formData = $(this).serialize();
+//         $.ajax({
+//             type:'post',
+//             url: 'http://ajax.frontend.itheima.net/api/reguser', 
+//             data:formData,
+//             success:function(res){
+//                 if(res.status === 0) {
+//                     $('.register-box a').click();
+//                     layer.msg(res.message)
+//                 }
+//             }
+//         })
+//     })
+
+
+
+// })
+
 $(function () {
-    $('.login-box a').click(function () {
-        $('.register-box').show();
-        $('.login-box').hide();
+    $('login-box a').click(function () {
+        $('login-box').hide();
+        $('register-box').show()
     })
     $('.register-box a').click(function () {
         $('.register-box').hide();
         $('.login-box').show()
     })
+
     var form = layui.form;
-    form.verify( {
-        uname:[/^[\S]{6,8}$/],
-        pwd:[/^[\w]{6,12}$/],
+    form.verify({
+        uname:/^[\S]{6,8}$/,
+        pwd:/^[\w]{6,12}$/,
         same:function(value,item){
             var pwd = $('#reg-password').val();
-            if(pwd !== value) {
+            if(value !== pwd){
                 return '两次密码不一致'
+
             }
         }
+
     })
-    $('.login-box').submit(function (e) {
-        e.preventDefault();
-        var formData = $(this).serialize();
-        $.ajax({
-            type: 'post',
-            url:'http://ajax.frontend.itheima.net/api/login',
-            data:formData,
-            success:function(res) {
-                if(res.status === 0) {
-                    localStorage.setItem('mytoken',res.token);
-                    location.href = './index.html';
-                    
-                }
-            }       
-        })
-    })
-    $('.register-box').submit(function(e) {
+    $('.login-box').submit(function(e){
         e.preventDefault();
         var formData = $(this).serialize();
         $.ajax({
             type:'post',
-            url: 'http://ajax.frontend.itheima.net/api/reguser', 
+            url:'api/login',
             data:formData,
             success:function(res){
                 if(res.status === 0) {
+                    localStorage.setItem('mytoken',res.token)
+                    location.href = './index.html'
+                }
+            }
+        })
+
+    });
+    $('.register-box').submit(function(e){
+        e.preventDefault();
+        var formData = $(this).serialize();
+        $.ajax({
+            type:'post',
+            url:'api/reguse',
+            data:formData,
+            success:function(res){
+                if(res.status === 0){
+                    
                     $('.register-box a').click();
                     layer.msg(res.message)
                 }
             }
         })
     })
-
-
-
 })
 
