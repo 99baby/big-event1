@@ -33,7 +33,7 @@
 // })
 
 $(function () {
-    var token = localStorage.getItem('mytoke')
+    var token = localStorage.getItem('mytoken')
     if (!token) {
         location.href = './login.html'
     };
@@ -47,14 +47,15 @@ $(function () {
                     $('#welcome-username').html(info.username);
                     $('#nav-username').html(info.username);
                     if (info.user_pic) {
-                        $('#welcome-username').parent().prev('div').remove();
-                        $('#welcome-username').parent().prepend('<img src = "' + info.user_pic + '" alt = "" />')
+                        $('#welcome-username,#nav-username').parent().prev('div').remove();
+                        $('#welcome-username,#nav-username').parent().find('img').remove().end().prepend('<img src = "' + info.user_pic + '" alt = "" />')
                     }
                 }
             }
         })
     };
     loadUserInfo();
+    $.loadUserInfo = loadUserInfo
     $('#logout-btn').click(function(){
         layer.confirm('确定退出吗',{icon:3,title:'提示'},function(index){
             localStorage.removeItem('mytoken'),

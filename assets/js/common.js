@@ -21,8 +21,9 @@
 
 // })
 
-$(function() {
-    var baseURL = 'http://ajax.frontend.itheima.net/';
+
+    // var baseURL = 'http://ajax.frontend.itheima.net/';
+    var baseURL = 'http://www.liulongbin.top:3007/'
     
     $.ajaxPrefilter(function(option){
         option.beforeSend = function(){
@@ -31,7 +32,7 @@ $(function() {
         option.url = baseURL + option.url;
         if(option.url.lastIndexOf('/my/') !== -1) {
             option.headers = {
-                Authrization:localStorage.getItem('mytoken')
+                Authorization:localStorage.getItem('mytoken')
             }
         };
         option.complete = function(res) {
@@ -42,4 +43,3 @@ $(function() {
             }
         }
     })
-})

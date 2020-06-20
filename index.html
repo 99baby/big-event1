@@ -8,83 +8,85 @@
     <link rel="stylesheet" href="./assets/lib/layui/css/layui.css">
     <link rel="stylesheet" href="./assets/fonts/iconfont.css">
     <link rel="stylesheet" href="./assets/lib/nprogress/nprogress.css">
-    <script src="./assets/lib/jquery.js"></script>
-    <script src="./assets/lib/layui/layui.all.js"></script>
-    <script src="./assets/js/index.js"></script>
-    <script src="./assets/js/common.js"></script>
-    <script src="./assets/lib/nprogress/nprogress.js"></script>    
+   
 </head>
 <body class="layui-layout-body">
-    <div class="layui-layout layui-layout-admin">
-      <!-- 顶部导航栏 -->
-      <div class="layui-header">
-        <!-- 导航栏Logo区域 -->
-        <div class="layui-logo">
-          <img src="./assets/images/logo.png">
-        </div>
-        <!-- 导航栏右侧菜单区域 -->
-        <ul class="layui-nav layui-layout-right">
-          <li class="layui-nav-item">
-            <a href="javascript:;" class="welcome">
-              <div>L</div>
-              <!-- <img src="http://t.cn/RCzsdCq" class="layui-nav-img"> -->
-              <span id="nav-username"></span>
-            </a>
-            <dl class="layui-nav-child">
-              <dd><a href="">基本资料</a></dd>
-              <dd><a href="">更换头像</a></dd>
-              <dd><a href="">重置密码</a></dd>
-            </dl>
-          </li>
-          <li class="layui-nav-item">
-            <a href="javascript:;" id="logout-btn"><span class="iconfont icon-tuichu"></span>&nbsp;&nbsp;退了</a>
-          </li>
-        </ul>
+  <div class="layui-layout layui-layout-admin">
+    <!-- 顶部导航栏 -->
+    <div class="layui-header">
+      <!-- 导航栏Logo区域 -->
+      <div class="layui-logo">
+        <img src="./assets/images/logo.png">
       </div>
-      <!-- 左侧菜单区 -->
-      <div class="layui-side layui-bg-black">
-        <div class="layui-side-scroll">
-          <!-- 顶部欢迎语 -->
+      <!-- 导航栏右侧菜单区域 -->
+      <ul class="layui-nav layui-layout-right">
+        <li class="layui-nav-item">
           <a href="javascript:;" class="welcome">
             <div>L</div>
             <!-- <img src="http://t.cn/RCzsdCq" class="layui-nav-img"> -->
-            <span>欢迎 <span id="welcome-username"></span></span>
+            <span><span id="nav-username"></span></span>
           </a>
-          <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
-          <ul class="layui-nav layui-nav-tree" lay-shrink='all'  lay-filter="test">
-            <li class="layui-nav-item layui-this"><a href=""><span class="iconfont icon-home"></span>首页</a></li>
-            <li class="layui-nav-item layui-nav-itemed">
-              <a class="" href="javascript:;"><span class="iconfont icon-16"></span>文章管理</a>
-              <dl class="layui-nav-child">
-                <dd><a href="javascript:;"><i class="layui-icon layui-icon-app"></i>文章类别</a></dd>
-                <dd><a href="javascript:;"><i class="layui-icon layui-icon-app"></i>文章列表</a></dd>
-                <dd><a href="javascript:;"><i class="layui-icon layui-icon-app"></i>发表文章</a></dd>
-              </dl>
-            </li>
-            <li class="layui-nav-item">
-              <a href="javascript:;"><span class="iconfont icon-user"></span>个人中心</a>
-              <dl class="layui-nav-child">
-                <dd><a target="iframeArea" href="./my/my-basic.html"><i class="layui-icon layui-icon-app"></i>基本资料</a></dd>
-                <dd><a href="javascript:;"><i class="layui-icon layui-icon-app"></i>更换头像</a></dd>
-                <dd><a href="javascript:;"><i class="layui-icon layui-icon-app"></i>修改密码</a></dd>
-              </dl>
-            </li>
-          </ul>
-        </div>
-      </div>
-      <!-- 右侧内容区 -->
-      <div class="layui-body">
-        <!-- 内容主体区域 -->
-        <div style="height: 100%;">
-          <!-- name属性用于标记iframe窗口，a标签的target属性值指向该name值，就可以把页面跳转到该子窗口中 -->
-          <iframe name="iframeArea" src="./home/dashboard.html"></iframe>
-        </div>
-      </div>
-      <!-- 右侧底部的Footer -->
-      <div class="layui-footer">
-        <!-- 底部固定区域 -->
-        © www.itheima.com - 黑马程序员
+          <dl class="layui-nav-child">
+            <dd><a target="iframeArea" href="./my/my-basic.html">基本资料</a></dd>
+            <dd><a target="iframeArea" href="./my/my-avatar.html">更换头像</a></dd>
+            <dd><a target="iframeArea" href="./my/my-repwd.html">重置密码</a></dd>
+          </dl>
+        </li>
+        <li class="layui-nav-item">
+          <a href="javascript:;" id="logout-btn"><span class="iconfont icon-tuichu"></span>&nbsp;&nbsp;退了</a>
+        </li>
+      </ul>
+    </div>
+    <!-- 左侧菜单区 -->
+    <div class="layui-side layui-bg-black">
+      <div class="layui-side-scroll">
+        <!-- 顶部欢迎语 -->
+        <a href="javascript:;" class="welcome">
+          <div>L</div>
+          <!-- <img src="http://t.cn/RCzsdCq" class="layui-nav-img"> -->
+          <span>欢迎 <span id="welcome-username"></span></span>
+        </a>
+        <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+        <ul class="layui-nav layui-nav-tree" lay-shrink='all'  lay-filter="test">
+          <li class="layui-nav-item layui-this"><a href=""><span class="iconfont icon-home"></span>首页</a></li>
+          <li class="layui-nav-item layui-nav-itemed">
+            <a href="javascript:;"><span class="iconfont icon-16"></span>文章管理</a>
+            <dl class="layui-nav-child">
+              <dd><a href="javascript:;"><i class="layui-icon layui-icon-app"></i>文章类别</a></dd>
+              <dd><a href="javascript:;"><i class="layui-icon layui-icon-app"></i>文章列表</a></dd>
+              <dd><a href="javascript:;"><i class="layui-icon layui-icon-app"></i>发表文章</a></dd>
+            </dl>
+          </li>
+          <li class="layui-nav-item ">
+            <a href="javascript:;"><span class="iconfont icon-user"></span>个人中心</a>
+            <dl class="layui-nav-child">
+              <dd><a target="iframeArea" href="./my/my-basic.html"><i class="layui-icon layui-icon-app"></i>基本资料</a></dd>
+              <dd><a target="iframeArea" href="./my/my-avatar.html"><i class="layui-icon layui-icon-app"></i>更换头像</a></dd>
+              <dd><a target="iframeArea" href="./my/my-repwd.html"><i class="layui-icon layui-icon-app"></i>修改密码</a></dd>
+            </dl>
+          </li>
+        </ul>
       </div>
     </div>
-    </body>>
+    <!-- 右侧内容区 -->
+    <div class="layui-body">
+      <!-- 内容主体区域 -->
+      <div style="height: 100%;">
+        <!-- name属性用于标记iframe窗口，a标签的target属性值指向该name值，就可以把页面跳转到该子窗口中 -->
+        <iframe name="iframeArea" src="./home/dashboard.html"></iframe>
+      </div>
+    </div>
+    <!-- 右侧底部的Footer -->
+    <div class="layui-footer">
+      <!-- 底部固定区域 -->
+      © www.itheima.com - 黑马程序员
+    </div>
+  </div>
+  <script src="./assets/lib/jquery.js"></script>
+  <script src="./assets/lib/layui/layui.all.js"></script>
+  <script src="./assets/js/index.js"></script>
+  <script src="./assets/js/common.js"></script>
+  <script src="./assets/lib/nprogress/nprogress.js"></script>    
+
+  </body>
 </html>
